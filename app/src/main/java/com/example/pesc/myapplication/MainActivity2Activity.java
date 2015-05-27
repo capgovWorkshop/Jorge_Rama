@@ -10,33 +10,38 @@ import android.widget.Button;
 import android.widget.TextView;
 
 
-public class MainActivity extends ActionBarActivity {
+public class MainActivity2Activity extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main_activity2);
 
+        TextView hello = (TextView) findViewById(R.id.textView);
 
-        final TextView hello = (TextView) findViewById(R.id.textView);
+        String texto = getIntent().getStringExtra("extra");
 
+        hello.setText(texto);
         Button button = (Button) findViewById(R.id.Button);
         button.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, MainActivity2Activity.class);
-                intent.putExtra("extra", hello.getText().toString());
-                startActivity(intent);
+                OnBackPressed();
             }
         });
-
     }
+
+    private void OnBackPressed(){
+      super.onBackPressed();
+    }
+
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
+        getMenuInflater().inflate(R.menu.menu_main_activity2, menu);
         return true;
     }
 
@@ -57,7 +62,7 @@ public class MainActivity extends ActionBarActivity {
 
    /* public void mudaPagina(View view)
     {
-        Intent intent = new Intent(MainActivity.this, MainActivity2Activity.class);
+        Intent intent = new Intent(MainActivity2Activity.this, MainActivity.class);
         startActivity(intent);
 
     }*/
