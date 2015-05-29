@@ -15,5 +15,6 @@
     <string name="senha">senha</string>
     <string name="title_activity_cadastro_realizado">cadastroRealizado</string>
     <string name="title_activity_login">Login</string>
+    <string name="title_activity_list_view">ListView</string>
 
 </resources>
